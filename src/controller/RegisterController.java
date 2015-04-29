@@ -33,12 +33,9 @@ public class RegisterController {
 			 	System.out.println("data error");
 		        return "register";
 		 }
-		//model.addAttribute("person",person);// do not need this here, ModelAttribute annotation keep the attributes
+		//model.addAttribute("person",person);// do not need this here, ModelAttribute annotation keep the attributes unless the request class redirect
 		 // http://moviedb.com/movies/1234 <= movieid
 		 // http://moviedb.com?movieid=1234
-		String newId= java.util.UUID.randomUUID().toString();
-		newId=newId.replaceAll("-", "");
-		person.setId(newId);
 		persondao.addPerson(person);
 		return "thankyou";
 	}

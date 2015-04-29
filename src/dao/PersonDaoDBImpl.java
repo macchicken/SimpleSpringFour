@@ -24,7 +24,7 @@ public class PersonDaoDBImpl implements PersonDao {
 	private String getByIdSQL = "SELECT * from person where id=?",
 				getAllSQL = "SELECT * from person",
 				deleteSQL = "DELETE from person where id=?" ,
-				insertSQL = "INSERT into person(id,firstName,lastName,email,age) values (?,?,?,?,?)" ,
+				insertSQL = "INSERT into person(id,firstName,lastName,email,age) values (UUID(),?,?,?,?)" ,
 				updateSQL = "UPDATE person set firstName=?,lastName=?,email=?,age=? where id=?";
 	Log log = LogFactory.getLog(PersonDaoDBImpl.class);
 	
@@ -77,11 +77,10 @@ public class PersonDaoDBImpl implements PersonDao {
 		try{
 			conn = ds.getConnection();
 			ps = conn.prepareStatement(insertSQL);
-			ps.setString(1, p.getId());
-			ps.setString(2, p.getFirstName());
-			ps.setString(3, p.getLastName());
-			ps.setString(4, p.getEmail());
-			ps.setInt(5, p.getAge());
+			ps.setString(1, p.getFirstName());
+			ps.setString(2, p.getLastName());
+			ps.setString(3, p.getEmail());
+			ps.setInt(4, p.getAge());
 			ps.executeUpdate();
 		}
 		catch(SQLException e){

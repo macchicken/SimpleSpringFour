@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import model.Person;
 
@@ -22,6 +23,8 @@ public class PersonDaoMemImpl implements PersonDao {
 
 	@Override
 	public void addPerson(Person p) {
+		String newId= UUID.randomUUID().toString().replaceAll("-", "");
+		p.setId(newId);
 		plist.put(p.getId(),p);
 	}
 
