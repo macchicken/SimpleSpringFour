@@ -21,29 +21,29 @@ public class PersonController {
 	private final PersonDao persondao=DaoFactory.getInstance().getProductDao();
 	
 	
-	@RequestMapping(value="/viewperson",method=RequestMethod.GET)
+	@RequestMapping(value="/smvc/viewperson",method=RequestMethod.GET)
 	public String viewPerson(Model model){
 		model.addAttribute("personlist", persondao.getAllPerson());
 		return "viewperson";
 	}
 
-	@RequestMapping(value="/person/edit/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/smvc/person/edit/{id}",method=RequestMethod.GET)
 	public String edit(@PathVariable String id,Model model){
 		model.addAttribute("person", persondao.getPersonById(id));
 		return "person";
 	}
 	
-	@RequestMapping(value="/person/update",method=RequestMethod.POST)
+	@RequestMapping(value="/smvc/person/update",method=RequestMethod.POST)
 	public String update(@Valid @ModelAttribute("person") Person person, BindingResult result){
 		if (result.hasErrors()){System.out.println("data error");return "person";}
 		persondao.updatePerson(person);
-		return "redirect:/";
+		return "redirect:/smvc/viewperson";
 	}
 
-	@RequestMapping(value="/person/delete/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/smvc/person/delete/{id}",method=RequestMethod.GET)
 	public String delete(@PathVariable String id){
 		persondao.deletePerson(id);
-		return "redirect:/viewperson";
+		return "redirect:/smvc/viewperson";
 	}
 
 }

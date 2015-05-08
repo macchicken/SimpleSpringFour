@@ -20,14 +20,14 @@ public class RegisterController {
 	
 	private final PersonDao persondao=DaoFactory.getInstance().getProductDao();
 	
-	@RequestMapping("/registerForm")
+	@RequestMapping("/smvc/registerForm")
 	public String index(Model model){
 		Person person = new Person();
 		model.addAttribute("person",person);
 		return "register";
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping("/smvc/register")
 	public String register(@Valid @ModelAttribute("person") Person person, BindingResult result){
 		 if (result.hasErrors()) {
 			 	System.out.println("data error");

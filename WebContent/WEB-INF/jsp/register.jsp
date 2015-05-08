@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page session="false"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -28,6 +29,6 @@
 <input type = "submit" value = "Submit"/>
 </form:form>
 <hr/>
-<p><a href="${pageContext.request.contextPath}" >Return to home page</a>.</p>
+<p><a href="${pageContext.request.contextPath}/smvc/simplePage" >Return to home page</a>.</p>
 </body>
 </html>
