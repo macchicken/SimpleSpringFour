@@ -15,6 +15,7 @@
 	<div class="widget-header">
 	<h5 class="widget-title"><a href="greeting" >Greeting example without parameter.</a></h5><br>
 	<h5 class="widget-title"><a href="greeting?name=Ethan">Greeting example with parameter.</a></h5><br>
+	<h5 class="widget-title"><a href="searchProducts?keyword=Ethan" > get my photo in flickr</a></h5><br>
 	<h5 class="widget-title"><a href="registerForm" > Registration example</a></h5><br>
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<h5 class="widget-title"><a href="viewperson" > view all person</a></h5>
